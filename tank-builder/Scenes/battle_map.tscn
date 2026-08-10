@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dnfves35anqre"]
+
+[ext_resource type="Script" uid="uid://svaiylphmc35" path="res://Scripts/battle_map.gd" id="1_inmu5"]
+
+[node name="BattleMap" type="Node2D" unique_id=240916618]
+script = ExtResource("1_inmu5")
+
+[node name="Background" type="TextureRect" parent="." unique_id=759753877]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid" type="TileMapLayer" parent="." unique_id=1014194512]
+
+[node name="Entities" type="Node2D" parent="." unique_id=514372773]

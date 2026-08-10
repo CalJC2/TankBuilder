@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bgjfjfh6ysm8e"]
 
-[ext_resource type="Script" uid="uid://lbrhhqjbd18v" path="res://Scenes/main_player_screen.gd" id="1_usobk"]
+[ext_resource type="Script" uid="uid://lbrhhqjbd18v" path="res://Scripts/main_player_screen.gd" id="1_usobk"]
 [ext_resource type="Script" uid="uid://bpvgh1c87dar5" path="res://Scripts/ActionStation.gd" id="2_7nwjp"]
 [ext_resource type="Script" uid="uid://7catgspnfoad" path="res://Scripts/combat_controller.gd" id="2_hdosg"]
+[ext_resource type="PackedScene" uid="uid://dw2dddcs0kukr" path="res://Scenes/shell_slot.tscn" id="2_uxeph"]
 
-[node name="MainPlayerScreen" type="Control" unique_id=126132938]
+[node name="MainPlayerScreen" type="Control" unique_id=126132938 node_paths=PackedStringArray("combat_controller")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_usobk")
+combat_controller = NodePath("CombatController")
+shell_slot_scene = ExtResource("2_uxeph")
 
 [node name="CombatController" type="Node" parent="." unique_id=344182240]
 script = ExtResource("2_hdosg")
