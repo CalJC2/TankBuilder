@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bgjfjfh6ysm8e"]
+
+[ext_resource type="Script" uid="uid://lbrhhqjbd18v" path="res://Scenes/main_player_screen.gd" id="1_usobk"]
+[ext_resource type="Script" uid="uid://bpvgh1c87dar5" path="res://Scripts/ActionStation.gd" id="2_7nwjp"]
+[ext_resource type="Script" uid="uid://7catgspnfoad" path="res://Scripts/combat_controller.gd" id="2_hdosg"]
+
+[node name="MainPlayerScreen" type="Control" unique_id=126132938]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_usobk")
+
+[node name="CombatController" type="Node" parent="." unique_id=344182240]
+script = ExtResource("2_hdosg")
+
+[node name="MainHBox" type="HBoxContainer" parent="." unique_id=567068589]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShellPanel" type="PanelContainer" parent="MainHBox" unique_id=823548163]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShellContainter" type="VBoxContainer" parent="MainHBox/ShellPanel" unique_id=143423762]
+layout_mode = 2
+
+[node name="RightSideBox" type="VBoxContainer" parent="MainHBox" unique_id=214362686]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShootButton" type="Button" parent="MainHBox/RightSideBox" unique_id=644555794]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Shoot
+"
+
+[node name="ActionStationContainer" type="PanelContainer" parent="MainHBox/RightSideBox" unique_id=1992340683]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_7nwjp")
+
+[node name="MainActionMenu" type="VBoxContainer" parent="MainHBox/RightSideBox/ActionStationContainer" unique_id=1296982274]
+layout_mode = 2
+
+[node name="MoveTankButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu" unique_id=812694465]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Move Tank "
+
+[node name="MoveShellsButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu" unique_id=232916394]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Move Shells"
+
+[node name="ViewMapButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu" unique_id=19950075]
+layout_mode = 2
+size_flags_vertical = 3
+text = "View Map
+"
+
+[node name="ShellMoveMenu" type="VBoxContainer" parent="MainHBox/RightSideBox/ActionStationContainer" unique_id=1673750865]
+visible = false
+layout_mode = 2
+
+[node name="MoveUpButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=584387389]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Move All Shells Up 1"
+
+[node name="MoveDownButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=84432906]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Move All Shells Down 1"
+
+[node name="SwapButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=533313298]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Swap 2 shell positions
+"
+
+[node name="BackButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=1560955768]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Back
+"
+
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu/MoveTankButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_tank_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu/MoveShellsButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_shells_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/MoveUpButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_up_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/MoveDownButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_down_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/SwapButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_swap_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/BackButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_back_button_pressed"]
