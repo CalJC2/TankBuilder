@@ -13,3 +13,4 @@ class_name ShellData
 @export_group("Types Of Effect")
 @export var is_penetrating: bool
 @export var is_DOT: bool
+@export var is_arcing: bool

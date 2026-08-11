@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dt8pkqhwe3rxb"]
+
+[ext_resource type="Script" uid="uid://q2n76b7283h6" path="res://Scripts/player_tank.gd" id="1_tvyc1"]
+[ext_resource type="PackedScene" uid="uid://bfkljyfhx6it6" path="res://Scenes/health_component.tscn" id="2_ydfla"]
+
+[node name="PlayerTank" type="Node2D" unique_id=1815038954]
+script = ExtResource("1_tvyc1")
+
+[node name="TankBase" type="Sprite2D" parent="." unique_id=96293544]
+
+[node name="TankTurret" type="Sprite2D" parent="." unique_id=1533747896]
+
+[node name="HealthComponent" parent="." unique_id=1794547498 instance=ExtResource("2_ydfla")]
