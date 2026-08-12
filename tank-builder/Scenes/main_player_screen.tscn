@@ -72,20 +72,18 @@ text = "View Map
 visible = false
 layout_mode = 2
 
-[node name="MoveUpButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=584387389]
+[node name="ActionButton1" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=584387389]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Move All Shells Up 1"
 
-[node name="MoveDownButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=84432906]
+[node name="ActionButton2" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=84432906]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Move All Shells Down 1"
 
-[node name="SwapButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=533313298]
+[node name="ActionButton3" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=533313298]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Swap 2 shell positions
+text = "
 "
 
 [node name="BackButton" type="Button" parent="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu" unique_id=1560955768]
@@ -96,7 +94,7 @@ text = "Back
 
 [connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu/MoveTankButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_tank_button_pressed"]
 [connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu/MoveShellsButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_shells_button_pressed"]
-[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/MoveUpButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_up_button_pressed"]
-[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/MoveDownButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_down_button_pressed"]
-[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/SwapButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_swap_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/ActionButton1" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_up_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/ActionButton2" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_down_button_pressed"]
+[connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/ActionButton3" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_swap_button_pressed"]
 [connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/ShellMoveMenu/BackButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_back_button_pressed"]

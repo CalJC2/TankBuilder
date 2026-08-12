@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TankData" format=3 uid="uid://w8eldlmpxf8s"]
+
+[ext_resource type="Script" uid="uid://brlfaa281xdxe" path="res://Scripts/TankData.gd" id="1_tn8yv"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="2_jc1r0"]
+
+[resource]
+script = ExtResource("1_tn8yv")
+tank_class_name = "Basic Tank"
+tank_base_texture = ExtResource("2_jc1r0")
+tank_turret_texture = ExtResource("2_jc1r0")
+max_health = 10
+movement_range = 4
+metadata/_custom_type_script = "uid://brlfaa281xdxe"

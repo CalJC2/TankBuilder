@@ -14,6 +14,7 @@ func _ready():
 
 func _on_tank_died():
 	print("Game Over")
+	get_tree().quit()
 
 func aim_turret(target_pixel_pos: Vector2):
 	var tween = create_tween()

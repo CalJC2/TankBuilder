@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://y6ykjx537kwy"]
 
 [ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_0x54k"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_8k40t"]
 
 [resource]
 script = ExtResource("1_0x54k")
+name = "HE Shell"
+icon = ExtResource("1_8k40t")
+damage = 4.0
+max_range = 5
 metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

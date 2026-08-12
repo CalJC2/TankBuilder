@@ -6,7 +6,7 @@ class_name ShellData
 @export var name: String
 @export var icon: Texture2D
 @export var damage: float
-@export var range: int
+@export var max_range: int
 @export var tiles_effected: int
 
 

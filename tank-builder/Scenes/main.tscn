@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dpq6dysuvuwdn"]
+
+[ext_resource type="PackedScene" uid="uid://csh5eudrq7lu6" path="res://Scenes/combat_controller.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://nhxqsyha1jk7" path="res://Scripts/main.gd" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dnfves35anqre" path="res://Scenes/battle_map.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="2_344ge"]
+[ext_resource type="PackedScene" uid="uid://bgjfjfh6ysm8e" path="res://Scenes/main_player_screen.tscn" id="3_jjvhh"]
+[ext_resource type="Resource" uid="uid://dx1cobvrvjld1" path="res://Scripts/ShellResources/Artillery_Shell.tres" id="3_ynf5e"]
+[ext_resource type="Resource" uid="uid://y6ykjx537kwy" path="res://Scripts/ShellResources/HE_Shell.tres" id="4_hptm8"]
+[ext_resource type="Resource" uid="uid://cx5d80qib7tj7" path="res://Scripts/ShellResources/Sniper_Shell.tres" id="5_d1ilt"]
+
+[node name="MainTest" type="Node" unique_id=2079306369]
+script = ExtResource("1_jjvhh")
+starting_test_deck = Array[ExtResource("2_344ge")]([ExtResource("3_ynf5e"), ExtResource("4_hptm8"), ExtResource("5_d1ilt")])
+
+[node name="CombatController" parent="." unique_id=611874915 instance=ExtResource("1_jjgbg")]
+
+[node name="BattleMap" parent="." unique_id=240916618 instance=ExtResource("2_8gbba")]
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1602949122]
+
+[node name="MainPlayerScreen" parent="UILayer" unique_id=126132938 node_paths=PackedStringArray("combat_controller") instance=ExtResource("3_jjvhh")]
+combat_controller = NodePath("../../CombatController")

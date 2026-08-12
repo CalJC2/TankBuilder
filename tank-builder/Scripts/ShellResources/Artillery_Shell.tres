@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://dx1cobvrvjld1"]
+
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_81lfs"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_hqnxx"]
+
+[resource]
+script = ExtResource("1_hqnxx")
+name = "Artillery Shell"
+icon = ExtResource("1_81lfs")
+damage = 2.0
+max_range = 3
+is_arcing = true
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

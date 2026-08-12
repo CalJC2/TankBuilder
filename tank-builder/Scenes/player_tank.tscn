@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://dt8pkqhwe3rxb"]
 
 [ext_resource type="Script" uid="uid://q2n76b7283h6" path="res://Scripts/player_tank.gd" id="1_tvyc1"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="2_30tft"]
+[ext_resource type="Resource" uid="uid://w8eldlmpxf8s" path="res://Scripts/TankResources/BasicTank.tres" id="2_fia26"]
 [ext_resource type="PackedScene" uid="uid://bfkljyfhx6it6" path="res://Scenes/health_component.tscn" id="2_ydfla"]
 
 [node name="PlayerTank" type="Node2D" unique_id=1815038954]
 script = ExtResource("1_tvyc1")
+tank_data = ExtResource("2_fia26")
 
 [node name="TankBase" type="Sprite2D" parent="." unique_id=96293544]
+modulate = Color(0, 1, 0, 1)
+texture = ExtResource("2_30tft")
 
 [node name="TankTurret" type="Sprite2D" parent="." unique_id=1533747896]
+modulate = Color(0, 1, 0.003921569, 1)
+scale = Vector2(1.5, 0.2)
+texture = ExtResource("2_30tft")
+offset = Vector2(60, 0)
 
 [node name="HealthComponent" parent="." unique_id=1794547498 instance=ExtResource("2_ydfla")]

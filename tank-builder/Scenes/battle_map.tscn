@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://dnfves35anqre"]
 
 [ext_resource type="Script" uid="uid://svaiylphmc35" path="res://Scripts/battle_map.gd" id="1_inmu5"]
+[ext_resource type="PackedScene" uid="uid://dt8pkqhwe3rxb" path="res://Scenes/player_tank.tscn" id="2_oucmi"]
+[ext_resource type="PackedScene" uid="uid://xwb16yq6l3ln" path="res://Scenes/enemy_tank.tscn" id="3_fysfy"]
+
+[sub_resource type="TileSet" id="TileSet_2x3k5"]
+tile_size = Vector2i(64, 64)
 
 [node name="BattleMap" type="Node2D" unique_id=240916618]
 script = ExtResource("1_inmu5")
+player_scene = ExtResource("2_oucmi")
+enemy_scene = ExtResource("3_fysfy")
 
 [node name="Background" type="TextureRect" parent="." unique_id=759753877]
 anchors_preset = 15
@@ -15,5 +22,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Grid" type="TileMapLayer" parent="." unique_id=1014194512]
+tile_set = SubResource("TileSet_2x3k5")
 
 [node name="Entities" type="Node2D" parent="." unique_id=514372773]

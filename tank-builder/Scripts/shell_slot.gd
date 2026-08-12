@@ -1,8 +1,8 @@
 extends Button
 class_name ShellSlot
 
-@onready var shell_icon = $HBoxContainer/ShellIcon
-@onready var shell_name = $HBoxContainer/ShellName
+@export var shell_icon: TextureRect
+@export var shell_name: Label
 
 func setup_shell(shell_data: ShellData):
 	shell_name.text = shell_data.name

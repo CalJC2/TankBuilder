@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://cx5d80qib7tj7"]
+
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_1mcl5"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_2yh20"]
+
+[resource]
+script = ExtResource("1_1mcl5")
+name = "Sniper Shell"
+icon = ExtResource("1_2yh20")
+damage = 6.0
+max_range = 8
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

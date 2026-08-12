@@ -22,7 +22,7 @@ func take_damage(amount: int):
 	if current_health == 0:
 		died.emit()
 
-func heal_to_max(amount: int):
+func heal_to_max():
 	current_health = max_health
 	
 	health_changed.emit(current_health, max_health)

@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bp63sa17ne4dl" path="res://Scripts/shell_slot.gd" id="1_btop7"]
 
-[node name="ShellSlot" type="Button" unique_id=271641001]
-custom_minimum_size = Vector2(0, 60)
+[node name="ShellSlot" type="Button" unique_id=271641001 node_paths=PackedStringArray("shell_icon", "shell_name")]
+custom_minimum_size = Vector2(80, 60)
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_btop7")
+shell_icon = NodePath("HBoxContainer/ShellIcon")
+shell_name = NodePath("HBoxContainer/ShellName")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=551156594]
 layout_mode = 1

@@ -13,13 +13,31 @@ var swap_index_1: int = -1
 func _ready():
 	combat_controller.update_ui.connect(_on_update_ui)
 	combat_controller.turn_state_changed.connect(_on_turn_state_changed)
+	shoot_button.pressed.connect(combat_controller.shoot_top_shell)
 	
-	action_station.move_shells_up.connect(combat_controller.move_shells_up())
-	action_station.move_shells_down.connect(combat_controller.move_shells_down())
-	action_station.swap_shells.connect(_start_swap_selection)
-	shoot_button.pressed.connect(combat_controller.shoot_top_shell())
+	combat_controller.actions_rolled.connect(action_station.setup_drafted_actions)
+	
+	action_station.shell_action_selected.connect(_route_selected_action)
+	
+
+func _route_selected_action(action_name: String):
+	match action_name:
+		"Move Up 1":
+			combat_controller.move_shells_up()
+		"Move Down 1":
+			combat_controller.move_shells_down()
+		"Move Up 2":
+			combat_controller.move_shells_up_twice()
+		"Move Down 2":
+			combat_controller.move_shells_down_twice()
+		"Swap":
+			_start_swap_selection()
+
+
 
 func _on_update_ui(shells: Array[ShellData]):
+	print("UI received ", shells.size(), " Shells!")
+	
 	for child in shell_list.get_children():
 		child.queue_free()
 	
@@ -33,7 +51,6 @@ func _on_update_ui(shells: Array[ShellData]):
 		index += 1
 
 func _on_turn_state_changed(has_acted: bool):
-	shoot_button.disabled = not has_acted
 	if has_acted:
 		action_station.modulate = Color(0.5,0.5,0.5,1)
 	else:
