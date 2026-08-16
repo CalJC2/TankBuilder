@@ -7,7 +7,7 @@ extends Control
 @onready var shoot_button = $MainHBox/RightSideBox/ShootButton
 @onready var shell_list = $MainHBox/ShellPanel/ShellContainter
 
-var is_selecting_swap: bool = false
+var targeting_mode: String = ""
 var swap_index_1: int = -1
 
 func _ready():
@@ -32,13 +32,23 @@ func _route_selected_action(action_name: String):
 		"Move Down 2":
 			combat_controller.move_shells_down_twice()
 		"Swap":
-			_start_swap_selection()
+			_start_targeting("swap")
+		"Reverse":
+			combat_controller.reverse_shells()
+		"Send to Top":
+			_start_targeting("send_to_top")
+		"Pin":
+			_start_targeting("pin")
+		"Life Steal":
+			combat_controller.apply_life_steal()
+		"Panic Shuffle":
+			combat_controller.panic_shuffle()
 
 func _on_update_ui(shells: Array[ShellData]):
 	for child in shell_list.get_children():
 		child.queue_free()
 	
-	is_selecting_swap = false
+	targeting_mode = ""
 	swap_index_1 = -1
 	
 	for index in range(shells.size()):
@@ -55,17 +65,23 @@ func _on_turn_state_changed(has_acted: bool):
 	else:
 		action_station.modulate = Color(1,1,1,1)
 
-func _start_swap_selection():
-	is_selecting_swap = true
+func _start_targeting(mode: String):
+	targeting_mode = mode
 	swap_index_1 = -1
 
 func _on_shell_tapped(index: int):
-	if is_selecting_swap:
+	if targeting_mode == "swap":
 		if swap_index_1 == -1:
 			swap_index_1 = index
 			print("first shell selected")
 			#optional: highlight the tapped shell button visualyl
 		else:
 			combat_controller.swap_shells(swap_index_1, index)
-			is_selecting_swap = false
+			targeting_mode = ""
 			swap_index_1 = -1
+	elif targeting_mode == "send_to_top":
+		combat_controller.send_shell_to_top(index)
+		targeting_mode = ""
+	elif targeting_mode == "pin":
+		combat_controller.toggle_pin(index)
+		targeting_mode = ""

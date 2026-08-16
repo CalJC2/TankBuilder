@@ -327,6 +327,10 @@ func execute_shot(target_tile: Vector2i):
 				health.take_damage(active_shell.damage)
 				print("Shell damage = ", active_shell.damage)
 				
+				if active_shell.has_life_steal:
+					if is_instance_valid(player_tank_node) and player_tank_node.has_node("HealthComponent"):
+						player_tank_node.get_node("HealthComponent").heal(active_shell.damage)
+				
 				if active_shell.dot_duration > 0:
 					health.apply_dot(active_shell.dot_damage, active_shell.dot_duration)
 				if active_shell.cryo_duration > 0:

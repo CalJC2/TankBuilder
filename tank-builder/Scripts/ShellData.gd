@@ -38,3 +38,5 @@ class_name ShellData
 @export var explosion_chance: float = 0.25
 
 var chamber_turns: int = 0
+var is_pinned: bool = false
+var has_life_steal: bool = false
