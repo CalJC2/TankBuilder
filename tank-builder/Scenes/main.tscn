@@ -29,3 +29,13 @@ obstacle_scene = ExtResource("14_wsu2k")
 
 [node name="MainPlayerScreen" parent="UILayer" unique_id=126132938 node_paths=PackedStringArray("combat_controller") instance=ExtResource("3_jjvhh")]
 combat_controller = NodePath("../../CombatController")
+
+[node name="ReturnToUIButton" type="Button" parent="UILayer" unique_id=1662390875]
+visible = false
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 133.0
+offset_bottom = 74.0
+text = "	Return to
+Player Screen
+"

@@ -176,3 +176,7 @@ func panic_shuffle():
 		
 	print("Panic Shuffle executed!")
 	finalise_action()
+
+func refund_shell(shell_data: ShellData):
+	active_shells.push_front(shell_data)
+	update_ui.emit(active_shells)
