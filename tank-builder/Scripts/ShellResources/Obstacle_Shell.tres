@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://2miist84fwmr"]
+
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_3841t"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_hepfe"]
+
+[resource]
+script = ExtResource("1_hepfe")
+name = "Obstacle Shell"
+icon = ExtResource("1_3841t")
+damage = 2
+max_range = 10
+is_arcing = true
+spawns_obstacles = true
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

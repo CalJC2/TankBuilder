@@ -4,18 +4,26 @@
 [ext_resource type="Script" uid="uid://nhxqsyha1jk7" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dnfves35anqre" path="res://Scenes/battle_map.tscn" id="2_8gbba"]
 [ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="2_344ge"]
+[ext_resource type="Resource" uid="uid://dwo03kiarp3yi" path="res://Scripts/ShellResources/Acid_Shell.tres" id="3_h1bgf"]
 [ext_resource type="PackedScene" uid="uid://bgjfjfh6ysm8e" path="res://Scenes/main_player_screen.tscn" id="3_jjvhh"]
-[ext_resource type="Resource" uid="uid://dx1cobvrvjld1" path="res://Scripts/ShellResources/Artillery_Shell.tres" id="3_ynf5e"]
-[ext_resource type="Resource" uid="uid://y6ykjx537kwy" path="res://Scripts/ShellResources/HE_Shell.tres" id="4_hptm8"]
-[ext_resource type="Resource" uid="uid://cx5d80qib7tj7" path="res://Scripts/ShellResources/Sniper_Shell.tres" id="5_d1ilt"]
+[ext_resource type="Resource" uid="uid://cht56nl70dg7a" path="res://Scripts/ShellResources/Cryo_Shell.tres" id="5_b3802"]
+[ext_resource type="Resource" uid="uid://e3xgeoogybbp" path="res://Scripts/ShellResources/Grapple_Shell.tres" id="7_hibaj"]
+[ext_resource type="Resource" uid="uid://cuwphldejd6mx" path="res://Scripts/ShellResources/Knockback_Shell.tres" id="9_pdsj5"]
+[ext_resource type="Resource" uid="uid://djnwalkarwg3w" path="res://Scripts/ShellResources/Mud_Shell.tres" id="10_ee4r6"]
+[ext_resource type="Resource" uid="uid://2miist84fwmr" path="res://Scripts/ShellResources/Obstacle_Shell.tres" id="11_gt3je"]
+[ext_resource type="Resource" uid="uid://u1hxm05gix28" path="res://Scripts/ShellResources/Smoke_Shell.tres" id="12_3pmx8"]
+[ext_resource type="Resource" uid="uid://bm6v8pajgxo58" path="res://Scripts/ShellResources/Cluster_Shell.tres" id="14_h1bgf"]
+[ext_resource type="Resource" uid="uid://c040y3y0ar5bx" path="res://Scripts/ShellResources/Tracer_Shell.tres" id="14_u50mg"]
+[ext_resource type="PackedScene" uid="uid://bmp3r6blsie73" path="res://Scenes/destuctable_obstacle.tscn" id="14_wsu2k"]
 
 [node name="MainTest" type="Node" unique_id=2079306369]
 script = ExtResource("1_jjvhh")
-starting_test_deck = Array[ExtResource("2_344ge")]([ExtResource("3_ynf5e"), ExtResource("4_hptm8"), ExtResource("5_d1ilt")])
+starting_test_deck = Array[ExtResource("2_344ge")]([ExtResource("3_h1bgf"), ExtResource("5_b3802"), ExtResource("7_hibaj"), ExtResource("9_pdsj5"), ExtResource("10_ee4r6"), ExtResource("11_gt3je"), ExtResource("12_3pmx8"), ExtResource("14_u50mg"), ExtResource("14_h1bgf")])
 
 [node name="CombatController" parent="." unique_id=611874915 instance=ExtResource("1_jjgbg")]
 
 [node name="BattleMap" parent="." unique_id=240916618 instance=ExtResource("2_8gbba")]
+obstacle_scene = ExtResource("14_wsu2k")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1602949122]
 

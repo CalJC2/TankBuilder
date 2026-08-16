@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://cuwphldejd6mx"]
+
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_41h0s"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_ahkh5"]
+
+[resource]
+script = ExtResource("1_41h0s")
+name = "Kncokback Shell"
+icon = ExtResource("1_ahkh5")
+damage = 2
+max_range = 10
+knockback_distance = 2
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

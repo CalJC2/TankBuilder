@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://svaiylphmc35" path="res://Scripts/battle_map.gd" id="1_inmu5"]
 [ext_resource type="PackedScene" uid="uid://dt8pkqhwe3rxb" path="res://Scenes/player_tank.tscn" id="2_oucmi"]
 [ext_resource type="PackedScene" uid="uid://xwb16yq6l3ln" path="res://Scenes/enemy_tank.tscn" id="3_fysfy"]
+[ext_resource type="Script" uid="uid://b60fmyy8dnibo" path="res://Scripts/GridManager.gd" id="4_fysfy"]
 
 [sub_resource type="TileSet" id="TileSet_2x3k5"]
 tile_size = Vector2i(64, 64)
@@ -11,6 +12,9 @@ tile_size = Vector2i(64, 64)
 script = ExtResource("1_inmu5")
 player_scene = ExtResource("2_oucmi")
 enemy_scene = ExtResource("3_fysfy")
+
+[node name="GridManager" type="Node" parent="." unique_id=2123574288]
+script = ExtResource("4_fysfy")
 
 [node name="Background" type="TextureRect" parent="." unique_id=759753877]
 anchors_preset = 15

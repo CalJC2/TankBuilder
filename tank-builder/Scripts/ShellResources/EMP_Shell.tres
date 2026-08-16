@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://i7yqkp7iwpuj"]
+
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_31epm"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_r81n5"]
+
+[resource]
+script = ExtResource("1_31epm")
+name = "EMP Shell"
+icon = ExtResource("1_r81n5")
+damage = 2
+max_range = 5
+emp_duration = 2
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

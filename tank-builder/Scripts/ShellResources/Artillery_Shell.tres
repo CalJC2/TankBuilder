@@ -7,7 +7,7 @@
 script = ExtResource("1_hqnxx")
 name = "Artillery Shell"
 icon = ExtResource("1_81lfs")
-damage = 2.0
-max_range = 3
+damage = 5
+max_range = 5
 is_arcing = true
 metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

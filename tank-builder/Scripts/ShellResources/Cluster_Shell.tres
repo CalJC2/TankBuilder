@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://bm6v8pajgxo58"]
+
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_vqd5k"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_xv77b"]
+
+[resource]
+script = ExtResource("1_xv77b")
+name = "Cluster Shell"
+icon = ExtResource("1_vqd5k")
+damage = 10
+max_range = 10
+splash_radius = 5
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

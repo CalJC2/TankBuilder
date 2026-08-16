@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://c040y3y0ar5bx"]
+
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_asax1"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_t1o8u"]
+
+[resource]
+script = ExtResource("1_asax1")
+name = "TracerShell"
+icon = ExtResource("1_t1o8u")
+damage = 2
+max_range = 10
+vulnerable_duration = 2
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

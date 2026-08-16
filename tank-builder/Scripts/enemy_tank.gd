@@ -7,9 +7,9 @@ class_name EnemyTank
 
 var current_grid_pos: Vector2i
 
-func enemy_setup(start_pos: Vector2i, max_health: int):
+func enemy_setup(start_pos: Vector2i, max_health: int, starting_armour: int = 0):
 	current_grid_pos = start_pos
-	health_component.initialise_health(max_health)
+	health_component.initialise_health(max_health, starting_armour)
 	
 	health_component.died.connect(_on_died)
 

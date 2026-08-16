@@ -8,7 +8,7 @@ class_name PlayerTank
 
 func _ready():
 	if tank_data:
-		health_component.initialise_health(tank_data.max_health)
+		health_component.initialise_health(tank_data.max_health, tank_data.armour)
 	
 	health_component.died.connect(_on_tank_died)
 

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://fxlfyt0oqnyq"]
+
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_0d234"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_g6v0y"]
+
+[resource]
+script = ExtResource("1_g6v0y")
+name = "MOAB Shell"
+icon = ExtResource("1_0d234")
+damage = 20
+max_range = 10
+is_arcing = true
+splash_radius = 5
+is_moab = true
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

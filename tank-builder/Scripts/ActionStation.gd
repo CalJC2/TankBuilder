@@ -24,7 +24,7 @@ func setup_drafted_actions(actions: Array[String]):
 func _on_dynamic_action_pressed(clicked_button: Button):
 	shell_action_selected.emit(clicked_button.text)
 	_on_back_button_pressed()
-# menu swapping logic --------------------------------------------------
+
 func _on_move_shells_button_pressed() -> void:
 	main_actions_menu.hide()
 	shell_move_menu.show()

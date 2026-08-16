@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://cht56nl70dg7a"]
+
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_4wa5u"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_7r52v"]
+
+[resource]
+script = ExtResource("1_7r52v")
+name = "Cryo Shell"
+icon = ExtResource("1_4wa5u")
+damage = 5
+max_range = 5
+cryo_duration = 2
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ShellData" format=3 uid="uid://dwo03kiarp3yi"]
+
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="1_jv0hu"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="1_us061"]
+
+[resource]
+script = ExtResource("1_jv0hu")
+name = "Acid Shell"
+icon = ExtResource("1_us061")
+damage = 2
+max_range = 6
+is_arcing = true
+dot_damage = 5
+dot_duration = 2
+hazard_type = "acid"
+hazard_duration = 3
+hazard_damage = 5
+metadata/_custom_type_script = "uid://dxvvhxc0xtxwu"

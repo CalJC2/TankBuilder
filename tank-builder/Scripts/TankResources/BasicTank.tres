@@ -8,6 +8,6 @@ script = ExtResource("1_tn8yv")
 tank_class_name = "Basic Tank"
 tank_base_texture = ExtResource("2_jc1r0")
 tank_turret_texture = ExtResource("2_jc1r0")
-max_health = 10
+max_health = 50
 movement_range = 4
 metadata/_custom_type_script = "uid://brlfaa281xdxe"
