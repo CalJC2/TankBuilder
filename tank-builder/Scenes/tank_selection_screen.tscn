@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cnn4e8lxqihd4"]
+
+[ext_resource type="Script" uid="uid://cht4bcf6nwp1i" path="res://Scripts/tank_selection_screen.gd" id="1_w32f5"]
+[ext_resource type="Script" uid="uid://brlfaa281xdxe" path="res://Scripts/TankData.gd" id="2_31wmr"]
+[ext_resource type="Resource" uid="uid://bh6q570uf1l2f" path="res://Scripts/TankResources/BalancedTank.tres" id="3_4jn2k"]
+[ext_resource type="Resource" uid="uid://dwnham1fto6l3" path="res://Scripts/TankResources/HeavyTank.tres" id="4_5pv43"]
+[ext_resource type="Resource" uid="uid://cfa6mb5gk54s6" path="res://Scripts/TankResources/LightTank.tres" id="5_10hra"]
+
+[node name="TankSelectionScreen" type="Control" unique_id=2131363948]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w32f5")
+available_tanks = Array[ExtResource("2_31wmr")]([ExtResource("3_4jn2k"), ExtResource("4_5pv43"), ExtResource("5_10hra")])
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1375394707]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="PanelContainer" parent="CenterContainer" unique_id=2107535386]
+custom_minimum_size = Vector2(600, 350)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MainPanel" unique_id=1395210016]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainSplit" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer" unique_id=682503912]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit" unique_id=685344085]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PrevButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/TopRow" unique_id=1718663876]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Prev
+"
+
+[node name="TankDisplay" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/TopRow" unique_id=1819820786]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TankImage" type="TextureRect" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/TopRow/TankDisplay" unique_id=196872659]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="TankName" type="Label" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/TopRow/TankDisplay" unique_id=1720306484]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/TopRow" unique_id=1578040765]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Next"
+
+[node name="BottomRow" type="HBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit" unique_id=1738331265]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/BottomRow" unique_id=1920847133]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelectButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/BottomRow" unique_id=951523205]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Select
+Tank"

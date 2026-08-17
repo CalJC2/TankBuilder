@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bf48tdy44mt4q"]
+
+[ext_resource type="Script" uid="uid://beu1732mn0dj2" path="res://Scripts/shell_selection_screen.gd" id="1_q6736"]
+[ext_resource type="Script" uid="uid://dxvvhxc0xtxwu" path="res://Scripts/ShellData.gd" id="2_2bdlt"]
+[ext_resource type="PackedScene" uid="uid://dw2dddcs0kukr" path="res://Scenes/shell_slot.tscn" id="2_gpbt6"]
+[ext_resource type="Resource" uid="uid://c040y3y0ar5bx" path="res://Scripts/ShellResources/Tracer_Shell.tres" id="3_dinfh"]
+[ext_resource type="Resource" uid="uid://cx5d80qib7tj7" path="res://Scripts/ShellResources/Sniper_Shell.tres" id="4_fjvxu"]
+[ext_resource type="Resource" uid="uid://u1hxm05gix28" path="res://Scripts/ShellResources/Smoke_Shell.tres" id="5_t1dng"]
+[ext_resource type="Resource" uid="uid://2miist84fwmr" path="res://Scripts/ShellResources/Obstacle_Shell.tres" id="6_7s1na"]
+[ext_resource type="Resource" uid="uid://djnwalkarwg3w" path="res://Scripts/ShellResources/Mud_Shell.tres" id="7_k6hsn"]
+[ext_resource type="Resource" uid="uid://fxlfyt0oqnyq" path="res://Scripts/ShellResources/MOAB_Shell.tres" id="8_f5apb"]
+[ext_resource type="Resource" uid="uid://cuwphldejd6mx" path="res://Scripts/ShellResources/Knockback_Shell.tres" id="9_eux6b"]
+[ext_resource type="Resource" uid="uid://y6ykjx537kwy" path="res://Scripts/ShellResources/HE_Shell.tres" id="10_ifimy"]
+[ext_resource type="Resource" uid="uid://e3xgeoogybbp" path="res://Scripts/ShellResources/Grapple_Shell.tres" id="11_uqck8"]
+[ext_resource type="Resource" uid="uid://i7yqkp7iwpuj" path="res://Scripts/ShellResources/EMP_Shell.tres" id="12_lssgg"]
+[ext_resource type="Resource" uid="uid://cht56nl70dg7a" path="res://Scripts/ShellResources/Cryo_Shell.tres" id="13_uqucm"]
+[ext_resource type="Resource" uid="uid://bm6v8pajgxo58" path="res://Scripts/ShellResources/Cluster_Shell.tres" id="14_a8wty"]
+[ext_resource type="Resource" uid="uid://dx1cobvrvjld1" path="res://Scripts/ShellResources/Artillery_Shell.tres" id="15_fn5hr"]
+[ext_resource type="Resource" uid="uid://dwo03kiarp3yi" path="res://Scripts/ShellResources/Acid_Shell.tres" id="16_uvie5"]
+
+[node name="ShellSelectionScreen" type="Control" unique_id=1017674680]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q6736")
+all_possible_shells = Array[ExtResource("2_2bdlt")]([ExtResource("3_dinfh"), ExtResource("4_fjvxu"), ExtResource("5_t1dng"), ExtResource("6_7s1na"), ExtResource("7_k6hsn"), ExtResource("8_f5apb"), ExtResource("9_eux6b"), ExtResource("10_ifimy"), ExtResource("11_uqck8"), ExtResource("12_lssgg"), ExtResource("13_uqucm"), ExtResource("14_a8wty"), ExtResource("15_fn5hr"), ExtResource("16_uvie5")])
+shell_slot_scene = ExtResource("2_gpbt6")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=601652027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="PanelContainer" parent="CenterContainer" unique_id=1175936117]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MainPanel" unique_id=1365163889]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainSplit" type="HBoxContainer" parent="CenterContainer/MainPanel/MarginContainer" unique_id=1271420210]
+layout_mode = 2
+
+[node name="AvailableSection" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit" unique_id=1804575964]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AvailableSectionLabel" type="Label" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/AvailableSection" unique_id=629439793]
+layout_mode = 2
+text = "Available Arsenal"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/AvailableSection" unique_id=134376577]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AvailableGrid" type="GridContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/AvailableSection/ScrollContainer" unique_id=1118507259]
+layout_mode = 2
+columns = 3
+
+[node name="DeckSection" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit" unique_id=1350469871]
+layout_mode = 2
+
+[node name="DeckSectionLabel" type="Label" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/DeckSection" unique_id=1677934016]
+layout_mode = 2
+text = "Selected Shells: 0/ X
+"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/DeckSection" unique_id=1357086079]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShellList" type="VBoxContainer" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/DeckSection/ScrollContainer" unique_id=568776029]
+layout_mode = 2
+
+[node name="StartRunButton" type="Button" parent="CenterContainer/MainPanel/MarginContainer/MainSplit/DeckSection" unique_id=1379969922]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Start Run
+"

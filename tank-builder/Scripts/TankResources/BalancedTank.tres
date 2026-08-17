@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TankData" format=3 uid="uid://bh6q570uf1l2f"]
+
+[ext_resource type="Script" uid="uid://brlfaa281xdxe" path="res://Scripts/TankData.gd" id="1_r878n"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="2_pp4x2"]
+
+[resource]
+script = ExtResource("1_r878n")
+tank_class_name = "Balanced Tank"
+tank_full_image = ExtResource("2_pp4x2")
+tank_base_texture = ExtResource("2_pp4x2")
+tank_turret_texture = ExtResource("2_pp4x2")
+max_health = 20
+movement_range = 4
+armour = 1
+total_shells = 5
+metadata/_custom_type_script = "uid://brlfaa281xdxe"

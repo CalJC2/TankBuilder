@@ -9,7 +9,7 @@ signal actions_rolled(drafted_action: Array[String])
 signal moab_exploded(damage_to_player: int)
 
 const ACTION_POOL: Array[String] = ["Move Up 1", "Move Down 1", "Move Up 2", 
-"Move Down 2", "Swap", "Reverse", "Send to Top", "Pin", "life Steal", "Panic Shuffle"]
+"Move Down 2", "Swap", "Reverse", "Send to Top", "Pin", "Life Steal", "Panic Shuffle"]
 
 var active_shells: Array[ShellData] = []
 var has_used_action: bool = false

@@ -9,6 +9,7 @@ signal map_action_finished
 signal player_turn_started
 signal player_moved
 signal shooting_canceled(shell_data: ShellData)
+signal player_health_changed(current_health: int, max_health: int)
 
 # Grid settings ----------------------------------------------------------------
 var grid_width = 10
@@ -98,11 +99,20 @@ func spawn_player():
 		grid_manager.remove_entity(player_pos)
 	
 	player_tank_node = player_scene.instantiate() as PlayerTank
+	
+	if RunManager.selected_tank:
+		player_tank_node.tank_data = RunManager.selected_tank
+	
 	entities_container.add_child(player_tank_node)
 	# map_to_local converts the grid coordinates into pixel coordinates
 	player_tank_node.position = grid_tilemap.map_to_local(player_pos)
 	
 	grid_manager.add_entity(player_pos, player_tank_node, "Player")
+	
+	var player_health = player_tank_node.get_node("HealthComponent")
+	player_health.health_changed.connect(func(current,max_health): player_health_changed.emit(current, max_health))
+	
+	player_health_changed.emit(player_health.current_health, player_health.max_health)
 
 func show_movement_options():
 	is_movement_mode_active = true
@@ -309,41 +319,49 @@ func execute_shot(target_tile: Vector2i):
 		tiles_to_damage.append(target_tile)
 	
 	for tile in tiles_to_damage:
+		# 1. Friendly Fire Safety & Hazards
 		if tile == player_pos:
-			continue
-		
+			continue 
+			
 		if active_shell.hazard_type != "":
 			grid_manager.add_hazard(tile, active_shell.hazard_type, active_shell.hazard_duration, active_shell.hazard_damage)
+			spawn_hazard_visual(tile, active_shell.hazard_type)
 			
-		
 		if grid_manager.grid_data.has(tile):
 			var hit_entity = grid_manager.entity_grid.get(tile)
 			
-			# check if the entity has a health component before damage
 			if hit_entity and hit_entity.has_node("HealthComponent"):
 				var health = hit_entity.get_node("HealthComponent")
 				
+				# --- NEW: Track where they actually end up! ---
+				var final_tile = tile 
+				
+				# 2. Knockback Logic
 				if active_shell.knockback_distance > 0:
 					var kb_dest = grid_manager.get_knockback_destination(player_pos, tile, active_shell.knockback_distance)
 					
 					if grid_manager.grid_data.has(kb_dest):
-						print("Knockback collision")
-						health.take_damage(active_shell.damage)
+						print("Knockback collision!")
+						health.take_damage(10) # Bonus collision damage
 					elif kb_dest.x >= 0 and kb_dest.x < grid_width and kb_dest.y >= 0 and kb_dest.y < grid_height:
 						grid_manager.move_entity(tile, kb_dest)
 						hit_entity.current_grid_pos = kb_dest
+						final_tile = kb_dest # Update their final resting place!
 						
 						var kb_pixel_pos = grid_tilemap.map_to_local(kb_dest)
 						var tween = create_tween()
-						tween.tween_property(hit_entity,"position", kb_pixel_pos, 0.2)
+						tween.tween_property(hit_entity, "position", kb_pixel_pos, 0.2)
+						await tween.finished # <--- NEW: Wait for the slide to finish before dealing damage!
 				
+				# 3. Standard Damage & Statuses
 				health.take_damage(active_shell.damage)
-				print("Shell damage = ", active_shell.damage)
 				
+				# (If you added Life Steal, insert that check here!)
 				if active_shell.has_life_steal:
 					if is_instance_valid(player_tank_node) and player_tank_node.has_node("HealthComponent"):
 						player_tank_node.get_node("HealthComponent").heal(active_shell.damage)
-				
+						print("Life Steal! Player healed for ", active_shell.damage)
+
 				if active_shell.dot_duration > 0:
 					health.apply_dot(active_shell.dot_damage, active_shell.dot_duration)
 				if active_shell.cryo_duration > 0:
@@ -353,13 +371,9 @@ func execute_shot(target_tile: Vector2i):
 				if active_shell.vulnerable_duration > 0:
 					health.apply_status("vulnerable", active_shell.vulnerable_duration)
 				
-				
+				# 4. Flawless Death Cleanup
 				if health.current_health <= 0:
-					grid_manager.remove_entity(target_tile)
-					if active_shell.knockback_distance > 0 and not grid_manager.grid_data.has(tile):
-						var kb_dest = grid_manager.get_knockback_destination(player_pos, tile, active_shell.knockback_distance)
-						grid_manager.remove_entity(kb_dest)
-						
+					grid_manager.remove_entity(final_tile) # <--- Erase them from wherever they landed!
 					check_win_condition()
 	
 	active_shell = null

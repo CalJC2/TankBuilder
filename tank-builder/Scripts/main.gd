@@ -33,9 +33,13 @@ func _ready() -> void:
 	
 	# map to UI-----------------------------------------------------------------
 	action_station.action_move_tank.connect(battle_map.show_movement_options)
+	battle_map.player_health_changed.connect(main_player_screen.update_health)
 	
 	# start the game -----------------------------------------------------------
-	combat_controller.initialise_shells(starting_test_deck)
+	if RunManager.player_shells.size() > 0:
+		combat_controller.initialise_shells(RunManager.player_shells)
+	else:
+		print("no shells!!")
 
 func _on_view_map_pressed():
 	main_player_screen.hide()

@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://7catgspnfoad" path="res://Scripts/combat_controller.gd" id="2_hdosg"]
 [ext_resource type="PackedScene" uid="uid://dw2dddcs0kukr" path="res://Scenes/shell_slot.tscn" id="2_uxeph"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chwvg"]
+bg_color = Color(1, 0, 0.039215688, 1)
+
 [node name="MainPlayerScreen" type="Control" unique_id=126132938 node_paths=PackedStringArray("combat_controller")]
 layout_mode = 3
 anchors_preset = 15
@@ -24,6 +27,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -91,6 +95,22 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Back
 "
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1302380443]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 10.0
+offset_right = 878.0
+offset_bottom = 37.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_chwvg")
+value = 100.0
+
+[node name="ActionLight" type="ColorRect" parent="." unique_id=1566082491]
+layout_mode = 0
+offset_left = 1075.0
+offset_top = 7.5
+offset_right = 1107.0
+offset_bottom = 39.5
 
 [connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu/MoveTankButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_tank_button_pressed"]
 [connection signal="pressed" from="MainHBox/RightSideBox/ActionStationContainer/MainActionMenu/MoveShellsButton" to="MainHBox/RightSideBox/ActionStationContainer" method="_on_move_shells_button_pressed"]

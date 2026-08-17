@@ -6,6 +6,8 @@ extends Control
 @onready var action_station = $MainHBox/RightSideBox/ActionStationContainer
 @onready var shoot_button = $MainHBox/RightSideBox/ShootButton
 @onready var shell_list = $MainHBox/ShellPanel/ShellContainter
+@onready var health_bar = $HealthBar
+@onready var action_light = $ActionLight
 
 var targeting_mode: String = ""
 var swap_index_1: int = -1
@@ -62,8 +64,10 @@ func _on_update_ui(shells: Array[ShellData]):
 func _on_turn_state_changed(has_acted: bool):
 	if has_acted:
 		action_station.modulate = Color(0.5,0.5,0.5,1)
+		action_light.color = Color(0.5, 0.5, 0.5)
 	else:
 		action_station.modulate = Color(1,1,1,1)
+		action_light.color = Color(0, 1, 0)
 
 func _start_targeting(mode: String):
 	targeting_mode = mode
@@ -85,3 +89,7 @@ func _on_shell_tapped(index: int):
 	elif targeting_mode == "pin":
 		combat_controller.toggle_pin(index)
 		targeting_mode = ""
+
+func update_health(current: int, max_health: int):
+	health_bar.max_value = max_health
+	health_bar.value = current
