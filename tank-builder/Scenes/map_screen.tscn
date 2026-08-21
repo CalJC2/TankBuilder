@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dckm7bupeuqjq"]
+
+[ext_resource type="Script" uid="uid://bxltn0y1natuo" path="res://Scripts/map_screen.gd" id="1_01v1l"]
+[ext_resource type="PackedScene" uid="uid://d1v3hw5fr8hi" path="res://Scenes/map_node.tscn" id="2_vof2i"]
+[ext_resource type="Texture2D" uid="uid://ktrngtbxajs6" path="res://icon.svg" id="3_eql2g"]
+
+[node name="MapScreen" type="Control" unique_id=319295403]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_01v1l")
+map_node_scene = ExtResource("2_vof2i")
+default_border_texture = ExtResource("3_eql2g")
+default_icon_texture = ExtResource("3_eql2g")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1634890396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26666668, 1, 0.63529414, 0.48235294)
+
+[node name="LinesContainer" type="Node2D" parent="." unique_id=1368869987]
+
+[node name="NodesContainer" type="Control" parent="." unique_id=1282630763]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
